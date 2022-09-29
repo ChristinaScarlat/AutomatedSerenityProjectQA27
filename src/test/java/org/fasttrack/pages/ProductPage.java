@@ -28,6 +28,10 @@ public class ProductPage extends BasePage {
     private WebElementFacade viewAllLogoCollection;
     @FindBy(css = "#product-44 > div.summary.entry-summary > form > table")
     private List<WebElementFacade> LogoProducts;
+    @FindBy(css=" tr#product-25 input.input-text.qty.text")
+    private WebElementFacade logoProductTShirt;
+    @FindBy(css=" tr#product-26 input.input-text.qty.text")
+    private WebElementFacade logoProductBeanie;
     @FindBy(css=".input-text.qty.text")
     private WebElementFacade setQtyFieldProducts;
 
@@ -48,14 +52,16 @@ public class ProductPage extends BasePage {
         setQtyFieldProducts.clear();
         setQtyFieldProducts.sendKeys(Qty + "");
     }
-//    public void selectLogoProducts(String nameProduct) {
-//        for (WebElementFacade element : LogoProducts) {
-//            if (element.getAttribute(nameProduct) ){
-//                clickOn(nameProduct);
-//
-//
-//            }
-//        }}
+    public void clickQtyLogoProductTShirt(int Qty){
+        logoProductTShirt.clear();
+        logoProductTShirt.sendKeys(Qty + "");
+    }
+    public void clickQtyLogoProductBeanie(int Qty){
+        logoProductBeanie.clear();
+        logoProductBeanie.sendKeys(Qty + "");
+    }
+
+
 
 
 }

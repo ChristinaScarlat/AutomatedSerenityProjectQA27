@@ -25,10 +25,13 @@ public class CartSteps extends BaseSteps {
     public void viewCart() {
         homePage.clickCartMenuButton();
     }
-
     @Step
-    public void removeFromCart(String nameProduct) {
-        cartPage.removeFromCartButton(nameProduct);
+    public void clickUpdateCart() {
+        cartPage.clickUpdateCart();
+    }
+    @Step
+    public void removeFromCart() {
+        cartPage.removeFromCartButton();
     }
     @Step
     public void checkSuccessMessageSpan(String productName) {
@@ -49,9 +52,17 @@ public class CartSteps extends BaseSteps {
         productPage.getQtyFieldProducts(Qty);
     }
     @Step
-    public void selectLogoProductsAndAddQty(String nameProduct){
-        productPage.selectLogoProducts(nameProduct);
+    public void clickQtyOnLogoProductTShirt(int Qty){
+        productPage.clickQtyLogoProductTShirt(Qty);
     }
+    @Step
+    public void clickQtyOnLogoProductBeanie(int Qty){
+        productPage.clickQtyLogoProductBeanie(Qty);
+    }
+//    @Step
+//    public void selectLogoProductsAndAddQty(String nameProduct){
+//        productPage.selectLogoProducts(nameProduct);
+//    }
 
      @Step
     public void checkSubtotalPrice() {

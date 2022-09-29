@@ -10,15 +10,15 @@ public class CartPage extends BasePage {
 
     @FindBy(css = ".woocommerce-message")
     private WebElementFacade successMessageSpan;
-
     @FindBy(css = "a.button.wc-forward")
     private WebElementFacade viewCartButton;
-
+    @FindBy(css = " td.actions button.button")
+    private WebElementFacade updateCartButton;
     @FindBy(css="a.remove")
     private WebElementFacade removeProductFromCartButton;
     @FindBy(css = "a.checkout-button.button.alt.wc-forward")
     private WebElementFacade proceedToCheckOutButton;
-    @FindBy(css = "div.woocommerce table tr.woocommerce-cart-form__cart-item.cart_item")
+    @FindBy(css = "div.woocommerce table tr.woocommerce-cart-form__cart-item.cart_item td.product-name")
     private List<WebElementFacade> cartProducts;
 
 //div.woocommerce table
@@ -45,18 +45,16 @@ public class CartPage extends BasePage {
         clickOn(viewCartButton);
     }
 
-    public void removeFromCartButton(String nameProduct) {
-        for (WebElementFacade element : cartProducts) {
-            if (element.getText().contains(nameProduct)) {
-                clickOn(removeProductFromCartButton);
-                clickOn(element.findElement(By.cssSelector("tbody a.remove")));
-            }
-        }
+    public void removeFromCartButton() {
+        clickOn(removeProductFromCartButton);
     }
-
+    public void clickUpdateCart(){
+        clickOn(updateCartButton);
+    }
     public void clickProceedToCheckOutButton() {
         clickOn(proceedToCheckOutButton);
     }
+
 
     public int getProductsSubtotal(){
         int sum = 0;

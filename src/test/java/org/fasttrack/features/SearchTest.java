@@ -21,9 +21,8 @@ public class SearchTest extends BaseTest {
         //loginSteps.doLogin(Constants.USER_EMAIl,Constants.USER_PASS);
         searchSteps.searchForKeyword("logo");
         cartSteps.clickViewAllLogoCollection();
-        cartSteps.selectLogoProductsAndAddQty("T-Shirt");
-       // cartSteps.addProductsQty(2);
-       // cartSteps.addProductToCart();
+        cartSteps.addProductsQty(2);
+        cartSteps.addProductToCart();
     }
     @Test
     public void searchForProductAndAddToCart(){
