@@ -18,8 +18,8 @@ public class CartPage extends BasePage {
     private WebElementFacade removeProductFromCartButton;
     @FindBy(css = "a.checkout-button.button.alt.wc-forward")
     private WebElementFacade proceedToCheckOutButton;
-    @FindBy(css = "div.woocommerce table tr.woocommerce-cart-form__cart-item.cart_item td.product-name")
-    private List<WebElementFacade> cartProducts;
+//    @FindBy(css = "tr.woocommerce-cart-form__cart-item.cart_item td.product-remove a.remove")
+//    private List<WebElementFacade> deleteButtonsCartProducts;
 
 //div.woocommerce table
 
@@ -54,6 +54,15 @@ public class CartPage extends BasePage {
     public void clickProceedToCheckOutButton() {
         clickOn(proceedToCheckOutButton);
     }
+
+    public void emptyCart(){
+        List<WebElementFacade> deleteButtonsCartProducts = findAll(By.cssSelector("tr.woocommerce-cart-form__cart-item.cart_item td.product-remove a.remove"));
+        if(deleteButtonsCartProducts.size()>0){
+        for (int i = 1; i < deleteButtonsCartProducts.size(); i++) {
+            deleteButtonsCartProducts.get(0).click();
+        }
+
+}}
 
 
     public int getProductsSubtotal(){

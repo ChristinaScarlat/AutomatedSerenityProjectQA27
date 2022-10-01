@@ -59,10 +59,16 @@ public class CartSteps extends BaseSteps {
     public void clickQtyOnLogoProductBeanie(int Qty){
         productPage.clickQtyLogoProductBeanie(Qty);
     }
-//    @Step
-//    public void selectLogoProductsAndAddQty(String nameProduct){
-//        productPage.selectLogoProducts(nameProduct);
-//    }
+    @Step
+    public void selectLogoProductsAndAddQtyAndAddToCart(int Qty){
+        productPage.getQtyFieldProducts(Qty);
+        productPage.clickQtyLogoProductTShirt(Qty);
+        productPage.clickQtyLogoProductBeanie(Qty);
+    }
+    @Step
+    public void getCartEmpty(){
+        cartPage.emptyCart();
+    }
 
      @Step
     public void checkSubtotalPrice() {
